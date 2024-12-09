@@ -29,7 +29,7 @@
                                 @foreach ($cart->items as $item)
                                     <tr>
                                         <td class="product-thumbnail">
-                                            <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
+                                            <img src="{{ asset('uploads/product/' . $item->image) }}" alt="Image" class="img-fluid">
                                         </td>
                                         <td class="product-name">
                                             <h2 class="h5 text-black">{{$item->name}}</h2>

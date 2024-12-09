@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,4 +35,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
 
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
+});
+
+Route::group(['prefix' => 'cart'], function(){
+    Route::get('/', [CartController::class, 'view'])->name('cart.view');
+    Route::get('/add{product}', [CartController::class, 'addToCart'])->name('add.cart');
 });
